@@ -113,7 +113,17 @@ data/
 
 BKT.ipynb
 requirements.txt
+```
 
+---
+
+# Installation
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
