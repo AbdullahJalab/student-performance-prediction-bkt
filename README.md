@@ -1,27 +1,39 @@
-# student-performance-prediction-bkt
-# Bayesian Knowledge Tracing (BKT)
+# Student Performance Prediction
 
-This project implements a complete Bayesian Knowledge Tracing (BKT) pipeline using Python and the pyBKT library.
+This repository contains implementations of educational data mining models for predicting student performance and learning outcomes using educational datasets.
 
-The goal of the project is to model student learning behavior and predict future student performance using educational datasets.
+Currently implemented models:
 
-The implementation includes preprocessing, chronological interaction ordering, grouped train/test splitting, model training, prediction generation, ROC analysis, Precision-Recall analysis, and evaluation visualizations.
+* Bayesian Knowledge Tracing (BKT)
+* Additive Factors Model (AFM)
+
+The project includes data preprocessing, model training, evaluation, and visualization pipelines for comparing different student performance prediction approaches.
 
 ---
 
-# Features
+# Models
 
-* Educational data preprocessing
-* Missing value removal
-* Filtering valid student responses
-* Removal of multi-skill interactions
-* Chronological sorting of interactions
-* Group-based train/test splitting
-* Bayesian Knowledge Tracing (BKT) training
-* ROC Curve visualization
-* Precision-Recall Curve visualization
-* Confusion Matrix visualization
-* Classification metrics evaluation
+## Bayesian Knowledge Tracing (BKT)
+
+BKT models student knowledge as a hidden state that evolves over time.
+
+Features:
+
+* Student-skill sequence modeling
+* Knowledge state estimation
+* Probability of correct response prediction
+* ROC and Precision-Recall evaluation
+
+## Additive Factors Model (AFM)
+
+AFM is a logistic regression-based educational data mining model.
+
+Features:
+
+* Knowledge Component (KC) encoding
+* Opportunity count modeling
+* Student error prediction
+* ROC and Precision-Recall evaluation
 
 ---
 
@@ -36,40 +48,9 @@ The implementation includes preprocessing, chronological interaction ordering, g
 
 ---
 
-# Data Preprocessing
-
-The preprocessing pipeline includes:
-
-* Selecting only required columns
-* Removing missing values
-* Keeping only:
-
-  * `correct`
-  * `incorrect`
-* Removing rows containing multiple skills (`~~`)
-* Sorting student interactions chronologically
-* Converting labels:
-
-  * `correct → 1`
-  * `incorrect → 0`
-
----
-
-# Train/Test Split
-
-The dataset is split using:
-
-```python
-GroupShuffleSplit
-```
-
-This prevents the same student from appearing in both training and testing datasets.
-
----
-
 # Evaluation Metrics
 
-The implementation evaluates the model using:
+The models are evaluated using:
 
 * Accuracy
 * ROC AUC
@@ -82,36 +63,18 @@ The implementation evaluates the model using:
 
 # Visualizations
 
-The project generates:
-
 * ROC Curves
 * Precision-Recall Curves
-* Confusion Matrix heatmaps
+* Confusion Matrices
 
 ---
 
-# Example Results
-
-## Physics Dataset
-
-* Accuracy: 0.852
-* ROC AUC: 0.8933
-
-These results show that the BKT model successfully captures student learning behavior and predicts future responses with strong performance.
-
----
-
-# Project Structure
+# Repository Structure
 
 ```text
-analysis/
-    scripts/
-        bkt_model.py
-
-data/
-    raw/
-
+AFM.ipynb
 BKT.ipynb
+README.md
 requirements.txt
 ```
 
@@ -119,19 +82,23 @@ requirements.txt
 
 # Installation
 
-Install the required packages:
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-# Run
+# Usage
 
-Open and run the notebook:
+Run the notebooks individually:
 
-```text
+```bash
+AFM.ipynb
+```
+
+or
+
+```bash
 BKT.ipynb
 ```
 
@@ -140,4 +107,5 @@ BKT.ipynb
 # Author
 
 Abdullah Jalab
+
 University of Duisburg-Essen
